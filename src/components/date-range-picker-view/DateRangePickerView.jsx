@@ -1,9 +1,11 @@
 import React from 'react';
+import {RangeTabs} from "../range-tabs/RangeTabs";
+import './date-range-picker-view.css'
 
 export const DateRangePickerView = () => {
 
   return (
-    <div className="date-range-picker-view w-96 h-96 flex">
+    <div className="date-range-picker-view w-96 flex">
       <div className="flex-auto">
 
         // components:
@@ -11,15 +13,10 @@ export const DateRangePickerView = () => {
 
         // calendar month (2)
         // data-number (2 state: empty + selected) [ 31 ]
-
-        // right part (today, last 7) - RangeTabs
-          // RangeTabItem
-
       </div>
 
-      <div className="flex-none w-24 bg-dark">
-        <a>today</a>
-        <a>last 7</a>
+      <div className="flex-none right-part">
+        <RangeTabs />
       </div>
 
     </div>

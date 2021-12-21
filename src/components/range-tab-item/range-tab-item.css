@@ -1,0 +1,4 @@
+.range-tab-item--active {
+  background: linear-gradient(135deg, #ef7401, #efa413);
+  color: #fff !important;
+}
