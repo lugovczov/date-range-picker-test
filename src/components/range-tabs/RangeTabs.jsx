@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {setFromRange, setToRange} from "../../store/features/range/rangeSlice";
 import {RangeTabItem} from "../range-tab-item/RangeTabItem";
 import {setActiveTab} from "../../store/features/active-tab/activeTabSlice";
+import {setDatePickerOpen} from "../../store/features/date-picker-open/datePickerOpenSlice";
 
 const tabs = [
   {
@@ -48,7 +49,9 @@ export const RangeTabs = () => {
 
     dispatch(setActiveTab(tab_id));
 
-    // TODO close picker
+    setTimeout(() => {
+      dispatch(setDatePickerOpen(false));
+    }, 300);
   }
 
   return (

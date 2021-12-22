@@ -6,6 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {Day} from "../day/Day";
 import {setFromRange, setToRange} from "../../store/features/range/rangeSlice";
 import {setActiveTab} from "../../store/features/active-tab/activeTabSlice";
+import {setDatePickerOpen} from "../../store/features/date-picker-open/datePickerOpenSlice";
 
 export const MonthPicker = ({ date }) => {
   const dispatch = useDispatch();
@@ -29,14 +30,16 @@ export const MonthPicker = ({ date }) => {
   const handleClickDay = (date) => {
 
     if (dateRange.from && !dateRange.to) {
+      setTimeout(() => {
+        dispatch(setDatePickerOpen(false));
+      }, 300);
+
       if (date < dateRange.from) {
         dispatch(setToRange(dateRange.from));
         return dispatch(setFromRange(date));
       } else {
         return dispatch(setToRange(date));
       }
-
-      // TODO close picker
     }
 
     dispatch(setActiveTab(null));
