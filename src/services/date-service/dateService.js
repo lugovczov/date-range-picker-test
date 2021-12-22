@@ -1,6 +1,13 @@
 import {DECREMENT, INCREMENT} from "../../constants/date-operators";
 
 export class DateService {
+  static getStartDay() {
+    const startDate = new Date(2017, 3, 4);
+    startDate.setHours(0, 0, 0, 0);
+
+    return startDate;
+  }
+
   static getDaysInMonth(date) {
     return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
   };
@@ -21,7 +28,7 @@ export class DateService {
 
   static getToday() {
     const today = new Date();
-    today.setHours(0,0,0,0);
+    today.setHours(0, 0, 0, 0);
 
     return today;
   }
@@ -45,7 +52,7 @@ export class DateService {
 
   static getLastSevenDaysRange() {
     const interDate = this.getToday();
-    const startDate = interDate.setDate(interDate.getDate() - 7);
+    const startDate = interDate.setDate(interDate.getDate() - 6);
 
     return {
       startDate: new Date(startDate),
@@ -55,7 +62,7 @@ export class DateService {
 
   static getLastThitryDaysRange() {
     const interDate = this.getToday();
-    const startDate = interDate.setDate(interDate.getDate() - 30);
+    const startDate = interDate.setDate(interDate.getDate() - 29);
 
     return {
       startDate: new Date(startDate),
@@ -66,7 +73,7 @@ export class DateService {
   static getThisMonthRange() {
     const interDate = this.getToday();
     const startDate = new Date(interDate.getFullYear(), interDate.getMonth(), 1);
-    startDate.setHours(0,0,0,0);
+    startDate.setHours(0, 0, 0, 0);
 
     return {
       startDate: startDate,
@@ -77,7 +84,7 @@ export class DateService {
   static getThisYearRange() {
     const interDate = this.getToday();
     const startDate = new Date(interDate.getFullYear(), 0, 1);
-    startDate.setHours(0,0,0,0);
+    startDate.setHours(0, 0, 0, 0);
 
     return {
       startDate: startDate,
@@ -86,11 +93,8 @@ export class DateService {
   };
 
   static getLifeTimeRange() {
-    const startDate = new Date(2017, 3, 4);
-    startDate.setHours(0,0,0,0);
-
     return {
-      startDate: startDate,
+      startDate: this.getStartDay(),
       endDate: this.getToday(),
     }
   };
