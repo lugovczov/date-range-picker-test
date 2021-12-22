@@ -1,7 +1,13 @@
-.date-range-picker-view {
-}
-
 .date-range-picker-view .right-part {
   padding: 1rem;
   border-left: 1px solid #c3c6d6;
+}
+
+.date-range-picker-view .main-part {
+  position: relative;
+}
+
+.drpw-buttons {
+  top: 0.85rem;
+  color: #232323;
 }

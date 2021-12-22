@@ -48,6 +48,8 @@ export const RangeTabs = () => {
     setActiveTab(tab_id);
 
     // TODO close picker
+    // TODO - active not work after close picker
+    //   will be replace on state
   }
 
   return (
