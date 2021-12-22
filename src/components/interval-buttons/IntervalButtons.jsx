@@ -49,7 +49,7 @@ export const IntervalButtons = () => {
     const fromDate = dateRange.to + oneDay;
     const toDate = fromDate + (dateRange.to - dateRange.from);
 
-    const disabled = fromDate > lastDate || !dateRange.to;
+    const disabled = toDate > lastDate || !dateRange.to;
 
     return (
       <Button
