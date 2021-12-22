@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {DateService} from "../../services/date-service/dateService";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {setFromRange, setToRange} from "../../store/features/range/rangeSlice";
 import {RangeTabItem} from "../range-tab-item/RangeTabItem";
+import {setActiveTab} from "../../store/features/active-tab/activeTabSlice";
 
 const tabs = [
   {
@@ -37,7 +38,7 @@ const tabs = [
 
 export const RangeTabs = () => {
   const dispatch = useDispatch();
-  const [activeTab, setActiveTab] = useState(null);
+  const activeTab = useSelector((state) => state.activeTab);
 
   const handleClick = (getRangeFunction, tab_id) => {
     const { startDate, endDate } = getRangeFunction;
@@ -45,11 +46,9 @@ export const RangeTabs = () => {
     dispatch(setFromRange(startDate.getTime()));
     dispatch(setToRange(endDate.getTime()));
 
-    setActiveTab(tab_id);
+    dispatch(setActiveTab(tab_id));
 
     // TODO close picker
-    // TODO - active not work after close picker
-    //   will be replace on state
   }
 
   return (

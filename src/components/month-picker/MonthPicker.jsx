@@ -5,6 +5,7 @@ import {DateService} from "../../services/date-service/dateService";
 import {useDispatch, useSelector} from "react-redux";
 import {Day} from "../day/Day";
 import {setFromRange, setToRange} from "../../store/features/range/rangeSlice";
+import {setActiveTab} from "../../store/features/active-tab/activeTabSlice";
 
 export const MonthPicker = ({ date }) => {
   const dispatch = useDispatch();
@@ -36,8 +37,9 @@ export const MonthPicker = ({ date }) => {
       }
 
       // TODO close picker
-      // TODO clear state tabs
     }
+
+    dispatch(setActiveTab(null));
 
     dispatch(setFromRange(date));
     dispatch(setToRange(null));
