@@ -11,6 +11,7 @@ import {ThemeProvider} from "@emotion/react";
 import {setFromRange, setToRange} from "../../store/features/range/rangeSlice";
 import {DateService} from "../../services/date-service/dateService";
 import {setActiveTab} from "../../store/features/active-tab/activeTabSlice";
+import {IntervalButtons} from "../interval-buttons/IntervalButtons";
 
 export const DateRangePickerWrapper = () => {
   const dispatch = useDispatch();
@@ -80,6 +81,8 @@ export const DateRangePickerWrapper = () => {
             <IconCalendar className="mr-3"/>
             {getConvertedRange()}
           </Button>
+
+          <IntervalButtons />
         </div>
 
         <Popover
