@@ -69,11 +69,8 @@ export const DateRangePickerWrapper = () => {
   return (
     <ThemeProvider theme={neutralButtonTheme}>
       <div className="date-range-picker-wrapper">
-        <div className="flex items-center">
-
+        <div className="flex items-center h-full py-1" aria-describedby={id} onClick={handleClick}>
           <Button
-            aria-describedby={id}
-            onClick={handleClick}
             variant="text"
             color="neutral"
             className="normal-case"
@@ -82,7 +79,7 @@ export const DateRangePickerWrapper = () => {
             {getConvertedRange()}
           </Button>
 
-          <IntervalButtons />
+          <IntervalButtons/>
         </div>
 
         <Popover

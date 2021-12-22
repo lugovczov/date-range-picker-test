@@ -12,7 +12,9 @@ export const IntervalButtons = () => {
 
   const dateRange = useSelector((state) => state.dateRange);
 
-  const setInterval = (fromDate, toDate) => {
+  const setInterval = (event, fromDate, toDate) => {
+    event.stopPropagation();
+
     dispatch(setFromRange(fromDate));
     dispatch(setToRange(toDate));
 
@@ -30,7 +32,7 @@ export const IntervalButtons = () => {
 
     return (
       <Button
-        onClick={() => setInterval(fromDate, toDate)}
+        onClick={(event) => setInterval(event, fromDate, toDate)}
         className="flex h-8 w-8 p-0 min-w-0"
         variant="icon"
         disabled={disabled}
@@ -51,7 +53,7 @@ export const IntervalButtons = () => {
 
     return (
       <Button
-        onClick={() => setInterval(fromDate, toDate)}
+        onClick={(event) => setInterval(event, fromDate, toDate)}
         className="flex h-8 w-8 p-0 min-w-0"
         variant="icon"
         disabled={disabled}
